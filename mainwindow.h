@@ -1,13 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#define _AMD64_
-
-#include "CyAPI.h"
 #include "ui_mainwindow.h"
+#include "DataTransfer.h"
 
-#include <winerror.h>
-#include <synchapi.h>
 #include <QThread>
 #include <QDebug>
 #include <QDateTime>
@@ -35,7 +31,7 @@ public:
     CCyUSBDevice *USBDevice;
     WId Handle = QWidget::winId();
 
-    QThread	XferThread;
+    DataTransfer dtXfer;
 
     static const int MAX_QUEUE_SZ = 64;
     static const int VENDOR_ID	= 0x04B4;
@@ -45,7 +41,7 @@ public:
     int QueueSize;
     int TimeOut;
     bool bShowData;
-    bool bStreaming;
+    bool bStreaming = false;
     bool bDeviceRefreshNeeded;
     bool bAppQuiting;
     bool bHighSpeedDevice;
@@ -53,18 +49,6 @@ public:
     bool bPnP_Arrival;
     bool bPnP_Removal;
     bool bPnP_DevNodeChange;
-
-    // static QProgressBar *XferRateBar;
-    // static QLabel *XferRateLabel;
-    // static QPlainTextEdit *DataBox;
-    // static QLineEdit *SuccessBox;
-    // static QLineEdit *FailureBox;
-    // static QComboBox *EptsBox;
-    // static QComboBox *PpxBox;
-    // static QComboBox *QueueBox;
-    // static QPushButton *StartButton;
-    // static QLineEdit *TimeoutBox;
-    // static QCheckBox *ShowBox;
 
     QProgressBar *XferRateBar;
     QLabel *XferRateLabel;
@@ -76,10 +60,9 @@ public:
     QComboBox *QueueBox;
     QPushButton *StartButton;
     QLineEdit *TimeoutBox;
-     QCheckBox *ShowBox;
+    QCheckBox *ShowBox;
 
-    // These declared static because accessed from the static XferLoop method
-    // XferLoop is static because it is used as a separate thread->
+
 private:
 
     Ui::MainWindow *ui;
@@ -175,20 +158,6 @@ private:
             QueueBox->setCurrentIndex(4);
     }
 
-    // void Form1_Closed(System::Object ^  sender, System::EventArgs ^  e)
-    // {
-    //     //if (XferThread->ThreadState == System::Threading::ThreadState::Suspended)
-    //     //XferThread->Resume();
-
-    //     bAppQuiting = true;
-    //     bStreaming = false;  // Stop the thread's xfer loop
-    //     bDeviceRefreshNeeded = false;
-
-    //     if (XferThread->ThreadState == System::Threading::ThreadState::Running)
-    //         XferThread->Join(10);
-    // }
-
-
     void StartBtn_Click()
     {
         //Decimal db;
@@ -215,98 +184,77 @@ private:
             return;
         }
 
-        if (XferThread.currentThread()) {
-            // switch (XferThread->ThreadState)
-            // {
-            // case System::Threading::ThreadState::Stopped:
-            // case System::Threading::ThreadState::Unstarted:
-            if(!XferThread.isRunning())
-            {
-                XferThread.start();
-                //fptr = fopen("F:\\output->bin", "wb");
+        //if(!dtXfer.isThreadRunning())
+        {
+            qDebug() << "xferDataLoop thread not running";
 
-                // if (!fptr)
-                //     std::cerr << "Não foi possível criar o arquivo";
 
-                if (EndPt == NULL ) EndPointsBox_SelectedIndexChanged(nullptr, nullptr);
-                else EnforceValidPPX();
+            if (EndPt == NULL )
+                EndPointsBox_SelectedIndexChanged(nullptr, nullptr);
+            else
+                EnforceValidPPX();
 
-                StartButton->setText("Stop");
-                StartButton->setStyleSheet("QPushButton {background-color: #F75151;}");
-                SuccessBox->setText("");
-                FailureBox->setText("");
-                //StartButton->BackColor = Color::MistyRose;
-                //ui->StartButton->Refresh();
+            StartButton->setText("Stop");
+            StartButton->setStyleSheet("QPushButton {background-color: #F75151;}");
+            SuccessBox->setText("");
+            FailureBox->setText("");
+            //StartButton->BackColor = Color::MistyRose;
+            //ui->StartButton->Refresh();
 
+
+
+            // Start-over, initializing counters, etc->
+            // if ((XferThread->ThreadState) == System::Threading::ThreadState::Stopped)
+            //     XferThread = gcnew Thread(gcnew ThreadStart(&XferLoop));
+
+            PPX = PpxBox->currentText().toInt();
+
+            QueueSize = QueueBox->currentText().toInt();
+            TimeOut = TimeoutBox->text().toInt();
+            bShowData = ShowBox->isChecked();
+
+            EptsBox->setEnabled(false);
+            PpxBox->setEnabled(false);
+            QueueBox->setEnabled(false);
+            TimeoutBox->setEnabled(false);
+            ShowBox->setEnabled(false);
+            ui->DeviceComboBox->setEnabled(false);
+
+            qDebug() << "Main GUI thread: " << QThread::currentThread();
+
+            if(bStreaming == false){
                 bStreaming = true;
-
-                // Start-over, initializing counters, etc->
-                // if ((XferThread->ThreadState) == System::Threading::ThreadState::Stopped)
-                //     XferThread = gcnew Thread(gcnew ThreadStart(&XferLoop));
-
-                PPX = PpxBox->currentText().toInt();
-
-                QueueSize = QueueBox->currentText().toInt();
-                TimeOut = TimeoutBox->text().toInt();
-                bShowData = ShowBox->isChecked();
-
-                EptsBox->setEnabled(false);
-                PpxBox->setEnabled(false);
-                QueueBox->setEnabled(false);
-                TimeoutBox->setEnabled(false);
-                ShowBox->setEnabled(false);
-                ui->DeviceComboBox->setEnabled(false);
-
-                //Verificar
-                //Thread start
-                //XferThread->start();
-                XferLoop(XferRateBar, XferRateLabel, DataBox);
-
-            } else {
-                //fclose(fptr);
-
-                XferThread.terminate();
-                XferThread.wait();
-                StartButton->setText("Start");
-                StartButton->setStyleSheet("QPushButton {background-color: #51F751;}");
-                //ui->StartButton->BackColor = Color::Aquamarine;
-                //ui->StartButton->Refresh();
-
-                bStreaming = false;  // Stop the thread's xfer loop
-                //XferThread->Join(10);
-                XferThread.msleep(10);
-
-                EptsBox->setEnabled(true);
-                PpxBox->setEnabled(true);
-                QueueBox->setEnabled(true);
-                TimeoutBox->setEnabled(true);
-                ShowBox->setEnabled(true);
-                ui->DeviceComboBox->setEnabled(true);
-
-                if (bDeviceRefreshNeeded == true )
-                {
-                    bDeviceRefreshNeeded = false;
-                    GetStreamerDevice();
-                }
+                dtXfer.startThread(EndPt, PPX, QueueSize);
+            }else{
+                bStreaming = false;
+                dtXfer.stopThread();
             }
+
+            //XferLoop(XferRateBar, XferRateLabel, DataBox);
+
+        // } else {
+        //     //dtXfer.stopThread();
+
+        //     StartButton->setText("Start");
+        //     StartButton->setStyleSheet("QPushButton {background-color: #51F751;}");
+
+        //     bStreaming = false;  // Stop the thread's xfer loop
+
+        //     EptsBox->setEnabled(true);
+        //     PpxBox->setEnabled(true);
+        //     QueueBox->setEnabled(true);
+        //     TimeoutBox->setEnabled(true);
+        //     ShowBox->setEnabled(true);
+        //     ui->DeviceComboBox->setEnabled(true);
+
+        //     if (bDeviceRefreshNeeded == true )
+        //     {
+        //         bDeviceRefreshNeeded = false;
+        //         GetStreamerDevice();
+        //     }
         }
+
     }
-
-    // void MainWindow:: Closed(System::Object sender, System::EventArgs ^  e)
-    // {
-    //     //if (XferThread->ThreadState == System::Threading::ThreadState::Suspended)
-    //     //XferThread->Resume();
-
-    //     bAppQuiting = true;
-    //     bStreaming = false;  // Stop the thread's xfer loop
-    //     bDeviceRefreshNeeded = false;
-
-    //     if (XferThread->ThreadState == System::Threading::ThreadState::Running)
-    //         XferThread->Join(10);
-    // }
-
-
-
 
     void DeviceComboBox_SelectedIndexChanged(QObject *sender, QEvent *e)
     {
@@ -412,7 +360,6 @@ private:
         EnforceValidPPX();
     }
 
-
     void EnforceValidPPX()
     {
         if (PpxBox->currentIndex() == -1 )
@@ -484,7 +431,6 @@ private:
 
         PpxBox->setCurrentText(QString::number(PPX));
     }
-
 
     static quint64 HexToInt(QString &hexString)
     {
@@ -561,6 +507,7 @@ private:
     }
 
     void XferLoop(QProgressBar *XferRateBar, QLabel *XferRateLabel, QPlainTextEdit *DataBox)
+    //void XferLoop()
     {
         long BytesXferred = 0;
         unsigned long Successes = 0;
@@ -581,7 +528,8 @@ private:
         if(EndPt == nullptr)
             qDebug() << "EndPt nulo";
 
-        EndPt->SetXferSize(len);
+        len = 38276;
+        //EndPt->SetXferSize(len);
 
         //long len = 302432;
 
@@ -640,8 +588,10 @@ private:
                         {
                             BytesXferred += pkts[j].Length;
 
-                            if (bShowData)
-                                Display16Bytes(buffers[i], DataBox);
+                            if (bShowData){
+                                ;
+                                //Display16Bytes(buffers[i], DataBox);
+                            }
 
                             //Save16Bytes(buffers[i]);
                             Successes++;
@@ -666,8 +616,7 @@ private:
                     Successes++;
                     BytesXferred += rLen;
 
-                    if (bShowData)
-                    {
+                    if (bShowData){
                         Display16Bytes(buffers[i], DataBox);
                         //Save16Bytes(buffers[i]);
                     }
@@ -689,7 +638,7 @@ private:
             {
                 QString txt = "Xfer request rejected-> NTSTATUS = ";
                 txt += QString::number(EndPt->NtStatus, 16);
-                Display(txt, DataBox);
+                //Display(txt, DataBox);
                 AbortXferLoop(QueueSize, buffers, isoPktInfos, contexts, inOvLap);
                 return;
             }
@@ -699,13 +648,13 @@ private:
             if (i == QueueSize) //Only update the display once each time through the Queue
             {
                 i=0;
-                ShowStats(t1, BytesXferred, Successes, Failures, XferRateBar, XferRateLabel);
+                //ShowStats(t1, BytesXferred, Successes, Failures, XferRateBar, XferRateLabel);
             }
 
         }  // End of the infinite loop
 
         // Memory clean-up
-        AbortXferLoop(QueueSize,buffers,isoPktInfos,contexts,inOvLap);
+        AbortXferLoop(QueueSize, buffers, isoPktInfos, contexts, inOvLap);
     }
 
     void Display(QString &s, QPlainTextEdit *DataBox)
@@ -763,6 +712,10 @@ private:
             QueueBox->setEnabled(true);
             ShowBox->setEnabled(true);
         }
+    }
+
+    void stopThread() {
+        dtXfer.stopThread();
     }
 };
 #endif // MAINWINDOW_H

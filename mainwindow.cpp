@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
     StartButton->setText("Iniciar");
     GetStreamerDevice();
 
-    moveToThread(&XferThread);
     //connect(&XferThread, &QThread::started, this, &MainWindow::XferLoop);
     connect(StartButton, &QPushButton::clicked, this,  &MainWindow::StartBtn_Click);
     //XferThread.start();

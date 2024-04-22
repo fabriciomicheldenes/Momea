@@ -21,6 +21,9 @@ int main(int argc, char *argv[])
     }
 
     MainWindow w;
+
+    //QObject::connect(&w, &MainWindow::stopThread, &a, &QCoreApplication::quit);
+
     w.show();
     return a.exec();
 }
