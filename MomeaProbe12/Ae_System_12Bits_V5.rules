@@ -1,0 +1,860 @@
+
+(rules PCB Ae_System_12Bits_V5
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 57)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 3.2)
+    )
+    (layer_rule In1.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+    (layer_rule In2.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+  )
+  (rule
+    (width 200.0)
+    (clearance 180.0)
+    (clearance 100.0 (type smd_to_turn_gap))
+    (clearance 45.0 (type smd))
+    (clearance 180.0 (type "kicad_default"))
+    (clearance 200.0 (type "+5V-S"))
+    (clearance 200.0 (type "-5V-S"))
+    (clearance 200.0 (type 3V3))
+    (clearance 200.0 (type A3V3))
+    (clearance 200.0 (type "CML_A"))
+    (clearance 200.0 (type "CML_B"))
+    (clearance 200.0 (type GNDA))
+    (clearance 200.0 (type GNDREF))
+    (clearance 200.0 (type "INN_A"))
+    (clearance 200.0 (type "INN_B"))
+    (clearance 200.0 (type "INP_A"))
+    (clearance 200.0 (type "INP_B"))
+    (clearance 200.0 (type REFN))
+    (clearance 200.0 (type REFP))
+    (clearance 200.0 (type "TO_INPUT_DIFF_A"))
+    (clearance 200.0 (type "TO_INPUT_DIFF_B"))
+    (clearance 200.0 (type VBUS))
+  )
+  (padstack "Via[0-3]_600:300_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_1000:300_um"
+    (shape
+      (circle F.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1000.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_1200:300_um"
+    (shape
+      (circle F.Cu 1200.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 1200.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 1200.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1200.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_1500:300_um"
+    (shape
+      (circle F.Cu 1500.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 1500.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 1500.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1500.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_1800:300_um"
+    (shape
+      (circle F.Cu 1800.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 1800.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 1800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_1800:1000_um"
+    (shape
+      (circle F.Cu 1800.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 1800.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 1800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-3]_1400:300_um"
+    (shape
+      (circle F.Cu 1400.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 1400.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 1400.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1400.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_600:300_um" "Via[0-3]_600:300_um" default
+  )
+  (via 
+    "Via[0-3]_1000:300_um" "Via[0-3]_1000:300_um" default
+  )
+  (via 
+    "Via[0-3]_1200:300_um" "Via[0-3]_1200:300_um" default
+  )
+  (via 
+    "Via[0-3]_1500:300_um" "Via[0-3]_1500:300_um" default
+  )
+  (via 
+    "Via[0-3]_1800:300_um" "Via[0-3]_1800:300_um" default
+  )
+  (via 
+    "Via[0-3]_1800:1000_um" "Via[0-3]_1800:1000_um" default
+  )
+  (via 
+    "Via[0-3]_1400:300_um" "Via[0-3]_1400:300_um" default
+  )
+  (via 
+    "Via[0-3]_600:300_um-kicad_default" "Via[0-3]_600:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-kicad_default" "Via[0-3]_1000:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-kicad_default" "Via[0-3]_1200:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-kicad_default" "Via[0-3]_1500:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-kicad_default" "Via[0-3]_1800:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-kicad_default" "Via[0-3]_1800:1000_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-kicad_default" "Via[0-3]_1400:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_600:300_um-+5V-S" "Via[0-3]_600:300_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-+5V-S" "Via[0-3]_1000:300_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-+5V-S" "Via[0-3]_1200:300_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-+5V-S" "Via[0-3]_1500:300_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-+5V-S" "Via[0-3]_1800:300_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-+5V-S" "Via[0-3]_1800:1000_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-+5V-S" "Via[0-3]_1400:300_um" "+5V-S"
+  )
+  (via 
+    "Via[0-3]_600:300_um--5V-S" "Via[0-3]_600:300_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_1000:300_um--5V-S" "Via[0-3]_1000:300_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_1200:300_um--5V-S" "Via[0-3]_1200:300_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_1500:300_um--5V-S" "Via[0-3]_1500:300_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_1800:300_um--5V-S" "Via[0-3]_1800:300_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um--5V-S" "Via[0-3]_1800:1000_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_1400:300_um--5V-S" "Via[0-3]_1400:300_um" "-5V-S"
+  )
+  (via 
+    "Via[0-3]_600:300_um-3V3" "Via[0-3]_600:300_um" 3V3
+  )
+  (via 
+    "Via[0-3]_1000:300_um-3V3" "Via[0-3]_1000:300_um" 3V3
+  )
+  (via 
+    "Via[0-3]_1200:300_um-3V3" "Via[0-3]_1200:300_um" 3V3
+  )
+  (via 
+    "Via[0-3]_1500:300_um-3V3" "Via[0-3]_1500:300_um" 3V3
+  )
+  (via 
+    "Via[0-3]_1800:300_um-3V3" "Via[0-3]_1800:300_um" 3V3
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-3V3" "Via[0-3]_1800:1000_um" 3V3
+  )
+  (via 
+    "Via[0-3]_1400:300_um-3V3" "Via[0-3]_1400:300_um" 3V3
+  )
+  (via 
+    "Via[0-3]_600:300_um-A3V3" "Via[0-3]_600:300_um" A3V3
+  )
+  (via 
+    "Via[0-3]_1000:300_um-A3V3" "Via[0-3]_1000:300_um" A3V3
+  )
+  (via 
+    "Via[0-3]_1200:300_um-A3V3" "Via[0-3]_1200:300_um" A3V3
+  )
+  (via 
+    "Via[0-3]_1500:300_um-A3V3" "Via[0-3]_1500:300_um" A3V3
+  )
+  (via 
+    "Via[0-3]_1800:300_um-A3V3" "Via[0-3]_1800:300_um" A3V3
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-A3V3" "Via[0-3]_1800:1000_um" A3V3
+  )
+  (via 
+    "Via[0-3]_1400:300_um-A3V3" "Via[0-3]_1400:300_um" A3V3
+  )
+  (via 
+    "Via[0-3]_600:300_um-CML_A" "Via[0-3]_600:300_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-CML_A" "Via[0-3]_1000:300_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-CML_A" "Via[0-3]_1200:300_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-CML_A" "Via[0-3]_1500:300_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-CML_A" "Via[0-3]_1800:300_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-CML_A" "Via[0-3]_1800:1000_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-CML_A" "Via[0-3]_1400:300_um" "CML_A"
+  )
+  (via 
+    "Via[0-3]_600:300_um-CML_B" "Via[0-3]_600:300_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-CML_B" "Via[0-3]_1000:300_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-CML_B" "Via[0-3]_1200:300_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-CML_B" "Via[0-3]_1500:300_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-CML_B" "Via[0-3]_1800:300_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-CML_B" "Via[0-3]_1800:1000_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-CML_B" "Via[0-3]_1400:300_um" "CML_B"
+  )
+  (via 
+    "Via[0-3]_600:300_um-GNDA" "Via[0-3]_600:300_um" GNDA
+  )
+  (via 
+    "Via[0-3]_1000:300_um-GNDA" "Via[0-3]_1000:300_um" GNDA
+  )
+  (via 
+    "Via[0-3]_1200:300_um-GNDA" "Via[0-3]_1200:300_um" GNDA
+  )
+  (via 
+    "Via[0-3]_1500:300_um-GNDA" "Via[0-3]_1500:300_um" GNDA
+  )
+  (via 
+    "Via[0-3]_1800:300_um-GNDA" "Via[0-3]_1800:300_um" GNDA
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-GNDA" "Via[0-3]_1800:1000_um" GNDA
+  )
+  (via 
+    "Via[0-3]_1400:300_um-GNDA" "Via[0-3]_1400:300_um" GNDA
+  )
+  (via 
+    "Via[0-3]_600:300_um-GNDREF" "Via[0-3]_600:300_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_1000:300_um-GNDREF" "Via[0-3]_1000:300_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_1200:300_um-GNDREF" "Via[0-3]_1200:300_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_1500:300_um-GNDREF" "Via[0-3]_1500:300_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_1800:300_um-GNDREF" "Via[0-3]_1800:300_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-GNDREF" "Via[0-3]_1800:1000_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_1400:300_um-GNDREF" "Via[0-3]_1400:300_um" GNDREF
+  )
+  (via 
+    "Via[0-3]_600:300_um-INN_A" "Via[0-3]_600:300_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-INN_A" "Via[0-3]_1000:300_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-INN_A" "Via[0-3]_1200:300_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-INN_A" "Via[0-3]_1500:300_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-INN_A" "Via[0-3]_1800:300_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-INN_A" "Via[0-3]_1800:1000_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-INN_A" "Via[0-3]_1400:300_um" "INN_A"
+  )
+  (via 
+    "Via[0-3]_600:300_um-INN_B" "Via[0-3]_600:300_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-INN_B" "Via[0-3]_1000:300_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-INN_B" "Via[0-3]_1200:300_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-INN_B" "Via[0-3]_1500:300_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-INN_B" "Via[0-3]_1800:300_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-INN_B" "Via[0-3]_1800:1000_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-INN_B" "Via[0-3]_1400:300_um" "INN_B"
+  )
+  (via 
+    "Via[0-3]_600:300_um-INP_A" "Via[0-3]_600:300_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-INP_A" "Via[0-3]_1000:300_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-INP_A" "Via[0-3]_1200:300_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-INP_A" "Via[0-3]_1500:300_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-INP_A" "Via[0-3]_1800:300_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-INP_A" "Via[0-3]_1800:1000_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-INP_A" "Via[0-3]_1400:300_um" "INP_A"
+  )
+  (via 
+    "Via[0-3]_600:300_um-INP_B" "Via[0-3]_600:300_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-INP_B" "Via[0-3]_1000:300_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-INP_B" "Via[0-3]_1200:300_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-INP_B" "Via[0-3]_1500:300_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-INP_B" "Via[0-3]_1800:300_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-INP_B" "Via[0-3]_1800:1000_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-INP_B" "Via[0-3]_1400:300_um" "INP_B"
+  )
+  (via 
+    "Via[0-3]_600:300_um-REFN" "Via[0-3]_600:300_um" REFN
+  )
+  (via 
+    "Via[0-3]_1000:300_um-REFN" "Via[0-3]_1000:300_um" REFN
+  )
+  (via 
+    "Via[0-3]_1200:300_um-REFN" "Via[0-3]_1200:300_um" REFN
+  )
+  (via 
+    "Via[0-3]_1500:300_um-REFN" "Via[0-3]_1500:300_um" REFN
+  )
+  (via 
+    "Via[0-3]_1800:300_um-REFN" "Via[0-3]_1800:300_um" REFN
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-REFN" "Via[0-3]_1800:1000_um" REFN
+  )
+  (via 
+    "Via[0-3]_1400:300_um-REFN" "Via[0-3]_1400:300_um" REFN
+  )
+  (via 
+    "Via[0-3]_600:300_um-REFP" "Via[0-3]_600:300_um" REFP
+  )
+  (via 
+    "Via[0-3]_1000:300_um-REFP" "Via[0-3]_1000:300_um" REFP
+  )
+  (via 
+    "Via[0-3]_1200:300_um-REFP" "Via[0-3]_1200:300_um" REFP
+  )
+  (via 
+    "Via[0-3]_1500:300_um-REFP" "Via[0-3]_1500:300_um" REFP
+  )
+  (via 
+    "Via[0-3]_1800:300_um-REFP" "Via[0-3]_1800:300_um" REFP
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-REFP" "Via[0-3]_1800:1000_um" REFP
+  )
+  (via 
+    "Via[0-3]_1400:300_um-REFP" "Via[0-3]_1400:300_um" REFP
+  )
+  (via 
+    "Via[0-3]_600:300_um-TO_INPUT_DIFF_A" "Via[0-3]_600:300_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-TO_INPUT_DIFF_A" "Via[0-3]_1000:300_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-TO_INPUT_DIFF_A" "Via[0-3]_1200:300_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-TO_INPUT_DIFF_A" "Via[0-3]_1500:300_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-TO_INPUT_DIFF_A" "Via[0-3]_1800:300_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-TO_INPUT_DIFF_A" "Via[0-3]_1800:1000_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-TO_INPUT_DIFF_A" "Via[0-3]_1400:300_um" "TO_INPUT_DIFF_A"
+  )
+  (via 
+    "Via[0-3]_600:300_um-TO_INPUT_DIFF_B" "Via[0-3]_600:300_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_1000:300_um-TO_INPUT_DIFF_B" "Via[0-3]_1000:300_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_1200:300_um-TO_INPUT_DIFF_B" "Via[0-3]_1200:300_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_1500:300_um-TO_INPUT_DIFF_B" "Via[0-3]_1500:300_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_1800:300_um-TO_INPUT_DIFF_B" "Via[0-3]_1800:300_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-TO_INPUT_DIFF_B" "Via[0-3]_1800:1000_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_1400:300_um-TO_INPUT_DIFF_B" "Via[0-3]_1400:300_um" "TO_INPUT_DIFF_B"
+  )
+  (via 
+    "Via[0-3]_600:300_um-VBUS" "Via[0-3]_600:300_um" VBUS
+  )
+  (via 
+    "Via[0-3]_1000:300_um-VBUS" "Via[0-3]_1000:300_um" VBUS
+  )
+  (via 
+    "Via[0-3]_1200:300_um-VBUS" "Via[0-3]_1200:300_um" VBUS
+  )
+  (via 
+    "Via[0-3]_1500:300_um-VBUS" "Via[0-3]_1500:300_um" VBUS
+  )
+  (via 
+    "Via[0-3]_1800:300_um-VBUS" "Via[0-3]_1800:300_um" VBUS
+  )
+  (via 
+    "Via[0-3]_1800:1000_um-VBUS" "Via[0-3]_1800:1000_um" VBUS
+  )
+  (via 
+    "Via[0-3]_1400:300_um-VBUS" "Via[0-3]_1400:300_um" VBUS
+  )
+  (via_rule
+    default "Via[0-3]_600:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_600:300_um-kicad_default"
+  )
+  (via_rule
+    "+5V-S" "Via[0-3]_600:300_um-+5V-S"
+  )
+  (via_rule
+    "-5V-S" "Via[0-3]_600:300_um--5V-S"
+  )
+  (via_rule
+    3V3 "Via[0-3]_600:300_um-3V3"
+  )
+  (via_rule
+    A3V3 "Via[0-3]_600:300_um-A3V3"
+  )
+  (via_rule
+    "CML_A" "Via[0-3]_600:300_um-CML_A"
+  )
+  (via_rule
+    "CML_B" "Via[0-3]_600:300_um-CML_B"
+  )
+  (via_rule
+    GNDA "Via[0-3]_600:300_um-GNDA"
+  )
+  (via_rule
+    GNDREF "Via[0-3]_600:300_um-GNDREF"
+  )
+  (via_rule
+    "INN_A" "Via[0-3]_600:300_um-INN_A"
+  )
+  (via_rule
+    "INN_B" "Via[0-3]_600:300_um-INN_B"
+  )
+  (via_rule
+    "INP_A" "Via[0-3]_600:300_um-INP_A"
+  )
+  (via_rule
+    "INP_B" "Via[0-3]_600:300_um-INP_B"
+  )
+  (via_rule
+    REFN "Via[0-3]_600:300_um-REFN"
+  )
+  (via_rule
+    REFP "Via[0-3]_600:300_um-REFP"
+  )
+  (via_rule
+    "TO_INPUT_DIFF_A" "Via[0-3]_600:300_um-TO_INPUT_DIFF_A"
+  )
+  (via_rule
+    "TO_INPUT_DIFF_B" "Via[0-3]_600:300_um-TO_INPUT_DIFF_B"
+  )
+  (via_rule
+    VBUS "Via[0-3]_600:300_um-VBUS"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GNDA GNDREF 3V3 "PreAmpSignal A" "PreAmpSignal B" "Net-(U1-+)" "Net-(U2-+)" "Net-(C3-Pad1)"
+    "Net-(U5-A1)" "Net-(U5-A0)" "Net-(U5-A3)" "Net-(C10-Pad1)" "Net-(U6-A1)" "Net-(U6-A0)" "Net-(U6-A3)" "INP_A"
+    "INP_B" "INN_B" "CML_A" "INN_A" "Net-(C35-Pad2)" "Net-(C36-Pad2)" "Net-(C37-Pad2)" "S0 A"
+    "Net-(C39-Pad2)" "S1 A" "Net-(C41-Pad2)" "S2 A" "Net-(C41-Pad1)" "S0 B" "Net-(C42-Pad2)" "S1 B"
+    "Net-(U5-S0)" "S2 B" "Net-(U5-S1)" "Net-(U5-S2)" "Net-(U6-S0)" "Net-(U6-S1)" "Net-(U6-S2)" "Net-(U3--)"
+    "Net-(U5-A)" "Net-(U6-A)" "Net-(U5-A4)" "Net-(U5-A5)" "Net-(U5-A6)" "Net-(U6-A4)" "Net-(U6-A5)" "Net-(U6-A6)"
+    "Net-(U3-+)" "Net-(U1--)" "Net-(U2--)" "LED_USB_OK" "LED_USB_NONE" "Net-(D6-A)" "LED_CAPTURING" VBUS
+    "unconnected-(U3-~{DIS}-Pad5)" "Net-(U5-A2)" "Net-(U6-A2)" "Net-(C8-Pad1)" "Net-(C44-Pad2)" "Net-(C22-Pad1)" "Net-(C23-Pad1)" "Net-(U4--)"
+    "Net-(C44-Pad1)" "Net-(C45-Pad2)" "Net-(C30-Pad1)" VS+A "Net-(U4-+)" "Net-(D4-A)" "Net-(D5-A)" "unconnected-(U4-~{DIS}-Pad5)"
+    "Net-(D3-A)" "Net-(D7-K)" "Net-(L5-Pad1)" "Net-(L6-Pad1)" "Net-(U20-VO)" "TO_INPUT_DIFF_B" "TO_INPUT_DIFF_A" "Net-(U9-+)"
+    "Net-(U13-+)" "Net-(C107-Pad2)" "Net-(U22-+)" "Net-(U21--)" "unconnected-(U17-GPIO[27]__CTL10-Pad11)" "D11A_BUFF" "D2A_BUFF" "unconnected-(U17-GPIO[51]__I2S_SD-Pad73)"
+    "D3B_BUFF" "D7A_BUFF" "unconnected-(U17-V3P3-Pad41)" "D6B_BUFF" "unconnected-(U17-GPIO[56]__SPI_MOSI_UART_RX-Pad59)" "D6A_BUFF" "D0A_BUFF" "D8B_BUFF"
+    "unconnected-(U17-GPIO57_I2S_MCLK-VIO3_SW-Pad75)" "D0B_BUFF" "unconnected-(U17-GPIO[55]__SPI_MISO_UART_TX-Pad61)" "D5A_BUFF" "D5B_BUFF" "unconnected-(U17-PMODE_2-Pad47)" "D3A_BUFF" "D7B_BUFF"
+    "unconnected-(U17-GPIO[59]__I2C_SDA_FX3-Pad39)" "D10A_BUFF" "unconnected-(U17-PMODE_0-Pad51)" "unconnected-(U17-GPIO[54]__SPI_SSN_UART_CTS-Pad63)" "unconnected-(U17-GPIO[21]__CTL4-Pad23)" "D4A_BUFF" "D8A_BUFF" "unconnected-(U17-GPIO[58]__I2C_SCL_FX3-Pad40)"
+    "unconnected-(U17-GPIO[22]__CTL5-Pad21)" "D11B_BUFF" "D9B_BUFF" "unconnected-(U17-PMODE_1-Pad49)" "unconnected-(U17-GPIO[23]__CTL6-Pad19)" "D1B_BUFF" "D1A_BUFF" "unconnected-(U17-V1P2-Pad2)"
+    "unconnected-(U17-GPIO[53]__SPI_SCK_UART_RTS-Pad67)" "D9A_BUFF" "unconnected-(U17-V1P2-Pad42)" "D10B_BUFF" "D4B_BUFF" "unconnected-(U17-GPIO[50]__I2S_CLK-Pad77)" "D2B_BUFF" "unconnected-(U17-V3P3-Pad1)"
+    "unconnected-(U17-GPIO[25]__CTL8-Pad15)" "unconnected-(U17-VIO-Pad44)" "unconnected-(U17-INT_N_CTL15-Pad43)" "unconnected-(U17-Pad45)" "unconnected-(U17-GPIO[52]__I2S_WS-Pad71)" "Net-(U15-1Y2)" "Net-(U15-1Y3)" "Net-(U15-1Y4)"
+    "Net-(U15-2Y1)" "Net-(U15-2Y2)" "Net-(U15-2Y3)" "Net-(U15-3Y3)" "Net-(U15-3Y4)" "Net-(U15-4Y1)" "Net-(U16-1Y2)" "Net-(U16-1Y3)"
+    "Net-(U16-1Y4)" "Net-(U16-2Y1)" "Net-(U16-2Y2)" "Net-(U16-2Y3)" "Net-(U16-3Y3)" "Net-(U16-3Y4)" "Net-(U16-4Y1)" D0A
+    D1A "Net-(U15-1A2)" D2A "Net-(U15-1A3)" D3A "Net-(U15-1A4)" "Net-(U15-2A1)" D4A
+    D5A "Net-(U15-2A2)" "Net-(U15-2A3)" D6A D7A D8A D9A "Net-(U15-3A3)"
+    D10A "Net-(U15-3A4)" D11A "Net-(U15-4A1)" CLKIN D0B "Net-(U16-1A2)" D1B
+    "Net-(U16-1A3)" D2B D3B "Net-(U16-1A4)" "Net-(U16-2A1)" D4B "Net-(U16-2A2)" D5B
+    "Net-(U16-2A3)" D6B D7B D8B D9B "Net-(U16-3A3)" D10B D11B
+    "Net-(U16-3A4)" "Net-(U16-4A1)" "Net-(U17-GPIO[16]__PCLK)" "Net-(U23-VIN+)" "Net-(U24-VO)" "Net-(U11-CML)" "Net-(U18-+)" "Net-(U19-+)"
+    "Net-(U18--)" "Net-(U19--)" "Net-(U11-REFN)" "Net-(U11-CLK)" "Net-(U11-~{CLK})" "Net-(U11-REFP)" "Net-(U11-REFIN)" VS+B
+    "Net-(C175-Pad1)" "Net-(U13--)" "Net-(U14-+)" "unconnected-(TR1-Pad2)" "unconnected-(TR2-Pad2)" "unconnected-(TR3-Pad2)" "unconnected-(TR4-Pad2)" "Net-(C73-Pad2)"
+    "Net-(U7-CML)" "Net-(U7-REFN)" "Net-(U7-CLK)" "Net-(C83-Pad1)" "Net-(U7-~{CLK})" "Net-(U7-REFP)" "Net-(C87-Pad1)" "Net-(U7-REFIN)"
+    "Net-(C96-Pad1)" "Net-(C105-Pad1)" "Net-(C108-Pad1)" "Net-(C116-Pad1)" "Net-(C117-Pad1)" "Net-(C132-Pad2)" "Net-(C142-Pad1)" "Net-(C146-Pad1)"
+    "Net-(C155-Pad1)" "Net-(C164-Pad1)" "Net-(C166-Pad2)" "Net-(C167-Pad1)" "Net-(C176-Pad1)" "Net-(R51-Pad2)" "Net-(R52-Pad2)" "Net-(R61-Pad2)"
+    "Net-(U9--)" "Net-(U10-+)" "Net-(R71-Pad2)" "Net-(R72-Pad2)" "Net-(R73-Pad1)" "Net-(R86-Pad2)" "Net-(R87-Pad2)" "Net-(R96-Pad2)"
+    "Net-(R106-Pad2)" "Net-(R107-Pad2)" "Net-(R108-Pad1)" "Net-(R178-Pad2)" "Net-(R179-Pad1)" DVD "B-GNDREF" "Net-(U15-4A2)"
+    "Net-(U15-4A3)" "Net-(U15-4A4)" "Net-(FB5-Pad2)" "Net-(FB7-Pad2)" "Net-(FB8-Pad2)" "Net-(FB9-Pad2)" "Net-(FB10-Pad2)" "CLK__TO_BUFF"
+    "Net-(U15-4Y2)" "Net-(U15-4Y3)" "Net-(U15-4Y4)" "Net-(U16-4Y2)" "Net-(U16-4Y3)" "Net-(U16-4Y4)" "Net-(U16-4A2)" "Net-(U16-4A3)"
+    "Net-(U16-4A4)" "CLK__BUFFERED_A" "unconnected-(U15-3Y2-Pad14)" "unconnected-(U15-2Y4-Pad12)" "unconnected-(U15-3Y1-Pad13)" "unconnected-(U16-3Y2-Pad14)" "unconnected-(U16-3Y1-Pad13)" "CLK__BUFFERED_B"
+    "unconnected-(U16-2Y4-Pad12)" "Net-(U15-1Y1)" "Net-(U16-1Y1)" "Net-(R74-Pad1)" PD ~{OE} "Net-(U22--)" "CML_B"
+    "REFN_A" "REFP_A" "REFN_B" "REFP_B" "Net-(R109-Pad1)" "Net-(C77-Pad2)" "Net-(C136-Pad2)" "Net-(U10--)"
+    "Net-(U8--)"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "+5V-S"
+    "+5V-S" "Net-(U23-VOUT+)"
+    (clearance_class "+5V-S")
+    (via_rule "+5V-S")
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "-5V-S"
+    "-5V-S" "Net-(U23-VOUT-)"
+    (clearance_class "-5V-S")
+    (via_rule "-5V-S")
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class 3V3
+    (clearance_class 3V3)
+    (via_rule 3V3)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class A3V3
+    A3V3
+    (clearance_class A3V3)
+    (via_rule A3V3)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "CML_A"
+    "Net-(C205-Pad2)"
+    (clearance_class "CML_A")
+    (via_rule "CML_A")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "CML_B"
+    (clearance_class "CML_B")
+    (via_rule "CML_B")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class GNDA
+    (clearance_class GNDA)
+    (via_rule GNDA)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class GNDREF
+    (clearance_class GNDREF)
+    (via_rule GNDREF)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "INN_A"
+    (clearance_class "INN_A")
+    (via_rule "INN_A")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "INN_B"
+    (clearance_class "INN_B")
+    (via_rule "INN_B")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "INP_A"
+    (clearance_class "INP_A")
+    (via_rule "INP_A")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "INP_B"
+    (clearance_class "INP_B")
+    (via_rule "INP_B")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class REFN
+    "Net-(C208-Pad2)"
+    (clearance_class REFN)
+    (via_rule REFN)
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class REFP
+    "Net-(C207-Pad2)"
+    (clearance_class REFP)
+    (via_rule REFP)
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "TO_INPUT_DIFF_A"
+    (clearance_class "TO_INPUT_DIFF_A")
+    (via_rule "TO_INPUT_DIFF_A")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class "TO_INPUT_DIFF_B"
+    (clearance_class "TO_INPUT_DIFF_B")
+    (via_rule "TO_INPUT_DIFF_B")
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+  (class VBUS
+    "Net-(C221-Pad1)"
+    (clearance_class VBUS)
+    (via_rule VBUS)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu In2.Cu B.Cu)
+    )
+  )
+)
