@@ -56,13 +56,11 @@
 #include "cyfxbulksrcsink.h"
 #include "DMACallback.h"
 
-CyU3PThread     bulkSrcSinkAppThread;	 /* Application thread structure */
+
 CyU3PDmaChannel glChHandleBulkSink;      /* DMA MANUAL_IN channel handle.          */
 CyU3PDmaChannel glChHandleBulkSrc;       /* DMA MANUAL_OUT channel handle.         */
 
 CyBool_t glIsApplnActive = CyFalse;      /* Whether the source sink application is active or not. */
-uint32_t glDMARxCount = 0;               /* Counter to track the number of buffers received. */
-uint32_t glDMATxCount = 0;               /* Counter to track the number of buffers transmitted. */
 CyBool_t glDataTransStarted = CyFalse;   /* Whether DMA transfer has been started after enumeration. */
 CyBool_t StandbyModeEnable  = CyFalse;   /* Whether standby mode entry is enabled. */
 CyBool_t TriggerStandbyMode = CyFalse;   /* Request to initiate standby entry. */
@@ -74,11 +72,10 @@ uint16_t on_time = 0, off_time = 0;
 /* Buffer used for USB event logs. */
 uint8_t *gl_UsbLogBuffer = NULL;
 
-/*
+/**
  * Main function
  */
-int
-main (void)
+int main (void)
 {
     CyU3PIoMatrixConfig_t io_cfg;
     CyU3PReturnStatus_t status = CY_U3P_SUCCESS;

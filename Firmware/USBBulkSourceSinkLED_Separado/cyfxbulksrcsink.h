@@ -28,7 +28,6 @@
 #include "cyu3types.h"
 #include "cyu3usbconst.h"
 #include "cyu3externcstart.h"
-
 #include "cyu3usb.h"
 #include "cyu3uart.h"
 #include "cyu3gpio.h"
@@ -42,7 +41,7 @@
 #define CY_FX_BULKSRCSINK_THREAD_STACK       (0x1000)                  /* Bulk loop application thread stack size */
 #define CY_FX_BULKSRCSINK_THREAD_PRIORITY    (8)                       /* Bulk loop application thread priority */
 
-/* TODO: User can change the data pattern bleow that is sent by FX3 to the host */
+/* TODO: User can change the data pattern below that is sent by FX3 to the host */
 #define CY_FX_BULKSRCSINK_PATTERN            (0xAA)                    /* 8-bit pattern to be loaded to the source buffers. */
 
 /* Endpoint and socket definitions for the bulk source sink application */
@@ -126,15 +125,12 @@ extern CyU3PDmaChannel glChHandleBulkSink;      /* DMA MANUAL_IN channel handle.
 extern CyU3PDmaChannel glChHandleBulkSrc;       /* DMA MANUAL_OUT channel handle.         */
 
 extern CyBool_t glIsApplnActive;      /* Whether the source sink application is active or not. */
-extern uint32_t glDMARxCount;               /* Counter to track the number of buffers received. */
-extern uint32_t glDMATxCount;               /* Counter to track the number of buffers transmitted. */
 extern CyBool_t glDataTransStarted;   /* Whether DMA transfer has been started after enumeration. */
 extern CyBool_t StandbyModeEnable;   /* Whether standby mode entry is enabled. */
 extern CyBool_t TriggerStandbyMode;   /* Request to initiate standby entry. */
 extern CyBool_t glForceLinkU2;   /* Whether the device should try to initiate U2 mode. */
 
 extern volatile uint32_t glEp0StatCount;           /* Number of EP0 status events received. */
-//extern uint8_t glEp0Buffer[32]; /* Local buffer used for vendor command handling. */
 extern uint16_t on_time;
 extern uint16_t off_time;
 

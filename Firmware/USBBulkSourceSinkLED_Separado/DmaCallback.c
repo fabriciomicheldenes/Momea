@@ -7,6 +7,9 @@
 
 #include "DMACallback.h"
 
+uint32_t glDMARxCount = 0;               /* Counter to track the number of buffers received. */
+uint32_t glDMATxCount = 0;               /* Counter to track the number of buffers transmitted. */
+
 /* Callback function for the DMA event notification. */
 void
 CyFxBulkSrcSinkDmaCallback (

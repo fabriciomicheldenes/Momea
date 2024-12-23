@@ -8,11 +8,14 @@
 #include "AppDefine.h"
 #include "ThreadEntry.h"
 
+CyU3PThread bulkSrcSinkAppThread;	 /* Application thread structure */
+
 /* Application define function which creates the threads. */
 void
 CyFxApplicationDefine (
         void)
 {
+
     void *ptr = NULL;
     uint32_t ret = CY_U3P_SUCCESS;
 
