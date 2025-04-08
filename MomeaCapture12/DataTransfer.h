@@ -42,6 +42,7 @@ public:
 signals:
     void bufferFull(QVector<double> *buffer, const qint8 part);
     void threadStarted(CCyUSBEndPoint *EndPt, int PPX, int QueueSize);
+    void newDataReady(const QString &data); // Sinal para enviar dados
 
 private:
 
@@ -56,7 +57,7 @@ private:
 
     qint8 GetEmptyBufferIndex(QVector<QVector<UCHAR>> &buffers);
     void Display16Bytes(PUCHAR data);
-    void Display(QString &s);
+    void Display(QString &s, QString &sb);
 };
 
 #endif // DATATRANSFER_H

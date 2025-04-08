@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,16 +11,24 @@ CONFIG += c++17
 SOURCES += \
     DataTransfer.cpp \
     WriteBufferToFileTask.cpp \
+    databuffer.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    momeaprobe.cpp \
+    redisconnection.cpp
 
 HEADERS += \
     DataTransfer.h \
     WriteBufferToFileTask.h \
-    mainwindow.h
+    databuffer.h \
+    mainwindow.h \
+    momeaprobe.h \
+    redisconnection.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    momeaprobe.ui \
+    redisconnection.ui
 
 TRANSLATIONS += \
     MomeaCapture_pt_BR.ts
@@ -47,3 +55,7 @@ LIBS += -luser32 \
 
 # INCLUDEPATH += 'C:/Program Files (x86)/Cypress/EZ-USB FX3 SDK/1.3/library/cpp/inc'
 # DEPENDPATH += 'C:/Program Files (x86)/Cypress/EZ-USB FX3 SDK/1.3/library/cpp/inc'
+
+# Adicione a biblioteca hiredis
+INCLUDEPATH += "C:/Program Files/hiredis/include"
+LIBS += -L"C:/Program Files/hiredis/lib" -lhiredis

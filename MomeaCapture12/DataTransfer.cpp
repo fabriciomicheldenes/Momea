@@ -202,6 +202,7 @@ void DataTransfer::XferLoop(CCyUSBEndPoint *EndPt, int PPX, int QueueSize)
 
                 if (bShowData){
                     Display16Bytes(buffers[i]);
+                    qDebug() << i;
                 }
             }
             else{
@@ -357,18 +358,19 @@ void DataTransfer::XferData()
 void DataTransfer::Display16Bytes(PUCHAR data)
 {
     QString xData = "";
+    QString xDatab = "";
 
-    //for (int i=0; i<16; i++){ //original
-    for (int i=0; i<4; i++){
+    for (int i=0; i<16; i++){
         xData += QString::number(data[i], 16).rightJustified(2, '0') + " ";
+        xDatab += QString::number(data[i], 2).rightJustified(8, '0') + " ";
     }
 
-    Display(xData);
+    Display(xData, xDatab);
 }
 
-void DataTransfer::Display(QString &s)
+void DataTransfer::Display(QString &s, QString &sb)
 {
-    qDebug() << s;
+    qDebug() << sb << " : " << s;
 }
 
 void DataTransfer::startThread(CCyUSBEndPoint *EndPt, int PPX, int QueueSize)

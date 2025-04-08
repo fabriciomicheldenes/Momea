@@ -5,6 +5,7 @@
 #include <QTranslator>
 #include <Windows.h>
 #include <minwindef.h>
+#include <QSharedPointer>
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +21,11 @@ int main(int argc, char *argv[])
         }
     }
 
+    // QSharedPointer<DataBuffer> buffer(new DataBuffer());
+    // MainWindow w(buffer.data());
+
     MainWindow w;
+
 
     //QObject::connect(&w, &MainWindow::stopThread, &a, &QCoreApplication::quit);
 
